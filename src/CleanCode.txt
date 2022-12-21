@@ -1,6 +1,3 @@
-Рефлексия
-
-
 *** Number 1 ***
 // Исходный код найденный на просторах github
     public static String factors(int n) {
