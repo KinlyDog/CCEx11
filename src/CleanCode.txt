@@ -1,0 +1,74 @@
+Рефлексия
+
+
+*** Number 1 ***
+// Исходный код найденный на просторах github
+    public static String factors(int n) {
+      String re = "";
+      int num = n, k = 0;
+      List<Long> primeNum = new ArrayList<>(), mainNum = new ArrayList<>();
+      if (isPrime(num)) return "(" + num + ")";
+      for (int i = 0; i < Math.sqrt(n); i++)
+        if (isPrime(i)) primeNum.add((long) i);
+      for (int i = 0; i < primeNum.size(); i++)
+        if (n % primeNum.get(i) == 0) {
+          mainNum.add(primeNum.get(i));
+          n /= primeNum.get(i);
+        }
+      int[] t = new int[mainNum.size()];
+      for (int i = 0; i < t.length; i++) t[i] = 1;
+      for (; k < mainNum.size(); k++) {
+        // код
+      }
+      for (int i = 0; i < mainNum.size(); i++) {
+        // код
+      }
+      return re;
+    }
+
+// Улучшенный код
+// 1. Перенес переменную re ближе к точке использования данной переменной, заменив ее методом StringBuilder bld
+// 2. Сделал переменную k локальной для цикла
+// 3. Избавился от переменной num переделав условный оператор и возвращаемое значение с num на n
+// 4. Заменил цикл заполнение массива одинаковыми числами методом Arrays.fill();
+// 5. Добавил пробелы, сделал код более читаемым
+// 6. Разделил объявление списков
+// 7. Изменил цикл for на for-each
+
+    public static String factors(int n) {
+6.      List<Long> primeNum = new ArrayList<>();
+        List<Long> mainNum = new ArrayList<>();
+
+3.      if (isPrime(n)) {
+            return "(" + n + ")";
+        }
+
+        // код
+
+7.      for (Long aLong : primeNum) {
+            if (n % aLong == 0) {
+                mainNum.add(aLong);
+                n /= aLong;
+            }
+        }
+
+        int[] t = new int[mainNum.size()];
+
+4.      Arrays.fill(t, 1);
+
+1.      StringBuilder bld = new StringBuilder();
+
+2.      for (int k = 0; k < mainNum.size(); k++) {
+            // код
+        }
+
+        for (int i = 0; i < mainNum.size(); i++) {
+            // код
+        }
+
+        return bld.toString();
+    }
+
+
+
+
